@@ -1,0 +1,10 @@
+<% if flash[:error].present? %>
+  <%= flash[:error] %>
+<% end %>
+
+<%= form_for @post do |f| %>
+  Title: <%= f.text_field :title %><br>
+  Content: <%= f.text_area :content %><br>
+  Category: <%= f.text_field :category %><br>
+  <%= f.submit 'Gönder' %>
+<% end %>

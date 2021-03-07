@@ -11,13 +11,20 @@
   </div>
 </div>
 
+<% if flash[:success].present? %>
+  <%= flash[:success] %>
+<% end %>
+
+
 <div class="content">
   <div class="ortala">
     <% @posts.each do |post| %>
-      <div class="post">
+      <%= link_to post_path(post), class: 'post' do %>
         <img src="">
-        <h1><%= post.title.size > 20 ? (post.title[0..20] + "...") : post.title %></h1>
-      </div>
+        <h1>
+            <%= post.title.size > 20 ? (post.title[0..20] + "...") : post.title %>
+        </h1>
+      <% end %>
     <% end %>
   </div>
 </div>

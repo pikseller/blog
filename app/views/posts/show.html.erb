@@ -1,2 +1,27 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div class="navbar">
+  <div class="ortala">
+    <div class="logo">Jedi Akademi</div>
+    <div class="menu">
+      <ul>
+        <li class="menu-item"><a href="#">Anasayfa</a></li>
+        <li class="menu-item"><a href="#" class="active">Blog</a></li>
+        <li class="menu-item"><a href="#">İletişim</a></li>      
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="content">
+  <div class="ortala">
+    <div class="post-genis">
+      <img src="">
+      <h1>
+          <%= @post.title.size > 60 ? (@post.title[0..60] + "...") : @post.title %>
+      </h1>
+    </div>
+    <p>
+      <%= @post.content %>
+    </p>
+  </div>
+</div>
