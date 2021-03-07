@@ -15,7 +15,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     if @post.save
       flash[:success] = "Post Başarıyla Oluşturuldu"
-      redirect_to posts_path
+      redirect_to post_path(@post)
     else
       flash[:error] = @post.errors.full_messages.join(", ")
       render :new

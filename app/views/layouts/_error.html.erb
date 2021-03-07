@@ -1,0 +1,20 @@
+<!--
+  <% if flash[:success].present? %>
+    <%= flash[:success] %>
+  <% end %>
+
+  <% if flash[:error].present? %>
+    <%= flash[:error] %>
+  <% end %>
+-->
+
+<% flash.each do |key, value| %>
+  <%= flash[key] %>
+<% end %>
+
+<!--
+  flash2 = {
+    success: "fewjkfhasdkjfhsadfksa",
+    error: "wsdaejfhawkjfawfkeaw"
+  }
+-->

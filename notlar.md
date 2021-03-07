@@ -16,3 +16,19 @@ View
   <% if flash[:error].present? %>
     <%= flash[:error] %>
   <% end %>
+
+
+
+# Code Review
+
+<%= truncate(post.title, length: 20) %>
+        
+<% if post.title.size > 20  %>
+  <%= (post.title[0..20] + "...")  %>
+<% else %>
+  <%= post.title %>
+<% end %>
+
+<%= post.title.size > 20 ? (post.title[0..20] + "...") : post.title %>
+
+Bu üç kod aslında aynı şeyi yapıyor.
