@@ -18,13 +18,9 @@
   padding: 0px;
   margin: 0px;
 }
-*:hover{
-  padding: 0px;
-  margin: 0px;
-}
 
 .ortala{
-  width: 1500px;
+  width: 95%;
   margin-left: auto;
   margin-right: auto;
 }
