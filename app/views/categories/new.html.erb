@@ -1,0 +1,8 @@
+<div class="center">
+<h1>Kategori ekle</h1>
+<%= form_for @categories do|f| %>
+    Adı <%= f.text_field :name %><br>
+    <%= f.submit 'Gönder',class: 'button kaydir' %>
+
+ <% end %>
+ </div>

@@ -1,0 +1,21 @@
+<h1>Tüm Kategoriler</h1>
+
+<table border="1">
+
+<tr>
+    <td>Adı</td>
+    <td>işlemler</td>
+</tr>
+    <% @categories.each do |category|%>
+
+        <tr> 
+            <td><%=category.name%></td>
+            <td><%=link_to("Göster",category_path(category.id),class: 'button')%>
+            <%=link_to("Güncelle",edit_category_path(category.id),class: 'button')%>
+            <%= link_to 'Sil', category_path(category.id),class: 'button', method: :delete, data: {:confirm => 'Emin misiniz?'} %></td>
+        </tr>
+
+    <%end%>
+</table>
+
+<%= link_to "Yeni Kategori Oluştur",new_category_path,class: 'button'%>

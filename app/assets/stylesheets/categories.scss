@@ -1,0 +1,29 @@
+// Place all the styles related to the categories controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.center {
+    margin: auto;
+    width: 60%;
+    border: 3px solid #73AD21;
+    padding: 10px;
+  }
+  .button {
+    background-color: #6F18DE;
+    border:  2px solid white;
+    transition: color 1s,background-color 1s;
+    font-family: 'Merriweather Sans', sans-serif;
+    border-radius: 6px;
+    color: white;
+    padding: 5px 11px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.button:hover{
+    background-color: rgb(255, 166, 0);
+    color: black;
+    
+}

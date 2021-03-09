@@ -1,8 +1,13 @@
+
 <% @posts.each do |post| %>
   <%= link_to post_path(post), class: 'post' do %>
     <img src="">
     <h1>
+    
       <%= truncate(post.title, length: 20) %>
+      
     </h1>
+    
   <% end %>
+
 <% end %>
