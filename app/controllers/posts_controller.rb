@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :is_admin?, except: [:index, :show]
   def index
     @posts = Post.all
   end
@@ -25,5 +27,8 @@ class PostsController < ApplicationController
   
   def post_params
     params.require(:post).permit(:title, :content, :category)
+  end
+  def is_admin?
+    redirect_to(root_path) if current_user.user?
   end
 end

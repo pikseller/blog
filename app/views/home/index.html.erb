@@ -1,0 +1,9 @@
+<%= current_user.email if user_signed_in? %><br>
+    <% if user_signed_in?%>
+
+        <%= link_to 'posts', posts_path %><br>
+        <%= link_to 'kategoriler', categories_path%><br>
+        <%= link_to 'Çıkış Yap', destroy_user_session_path, method: :delete %>
+    <%else%>
+        <%= link_to 'Giriş Yap',new_user_session_path %>
+    <%end%>
