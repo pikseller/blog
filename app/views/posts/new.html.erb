@@ -1,6 +1,6 @@
 <%= form_for @post do |f| %>
   Title: <%= f.text_field :title %><br>
   Content: <%= f.text_area :content %><br>
-  Category: <%= f.collection_select :categories_id, Category.all, :id,:name %><br>
+  Category: <%= f.collection_select :category_id, Category.all, :id, :name %><br>
   <%= f.submit 'Gönder', class:'button'%>
 <% end %>

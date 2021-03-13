@@ -4,7 +4,15 @@
       <%= truncate(@post.title, length: 60) %>
   </h1>
   <p class="content">
-  <%= @post.content %>
+    <%= @post.content %>
   </p>
+  <p class="content">
+    <% if @post.category.present? %>
+      <%= link_to @post.category.name, category_path(@post.category) %>
+    <% else %>
+      Bu yazının kategorisi bulunmamaktadır.
+    <% end %>
+  </p>
+
 </div>
 
