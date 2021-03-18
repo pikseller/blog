@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
   root 'home#index'
+  
+  devise_for :users
+  
   resources :categories
-  resources :posts, except: [:update, :edit, :destroy]
+  resources :posts,       except: [:update, :edit, :destroy]
 end
