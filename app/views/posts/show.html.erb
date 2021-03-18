@@ -16,5 +16,21 @@
     <% end %>
   </p>
 
+  <br>
+  <br>
+
+  <% @comments.each do |comment| %>
+    <b><%= comment.name %></b> <%= comment.content %><br>
+  <% end %>
+
+  <p class="content">
+    <%= form_for @comment do |f| %>
+      Ad Soyad: <%= f.text_field :name %><br>
+      E-posta:  <%= f.text_field :email %><br>
+      Mesajınız: <%= f.text_field :content %><br>
+      <%= f.hidden_field :post_id, value: @post.id %><br>
+      <%= f.submit 'Yorum Yap' %><br>
+    <% end %>
+  </p>
 </div>
 
