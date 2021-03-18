@@ -1,12 +1,12 @@
 <div class="center">
-<h1>Kategori</h1>
-<%= @category.name %><br>
+  <h1>Kategori</h1>
+  <%= @category.name %><br>
 
-<h3> Bu Kategoride Yazılmış Blog Yazıları </h3>
-<% @category.posts.each do |post| %>
-  <%= link_to post.title, post_path(post) %><br>
-<% end %>
+  <h3> Bu Kategoride Yazılmış Blog Yazıları </h3>
+  <% @category.posts.each do |post| %>
+    <%= link_to post.title, post_path(post) %><br>
+  <% end %>
 
-<br>
-<%= link_to 'Kategoriler', categories_path ,class: 'button' %>
+  <br>
+  <%= link_to 'Kategoriler', categories_path ,class: 'button' %>
 </div>

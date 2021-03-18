@@ -7,8 +7,10 @@
     <%= @post.content %>
   </p>
   <p class="content">
-    <% if @post.category.present? %>
-      <%= link_to @post.category.name, category_path(@post.category) %>
+    <% if @post.categories.present? %>
+      <% @post.categories.each do |category| %>
+        <%= link_to category.name, category_path(category) %>
+      <% end %>
     <% else %>
       Bu yazının kategorisi bulunmamaktadır.
     <% end %>
