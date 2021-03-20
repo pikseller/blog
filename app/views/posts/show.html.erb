@@ -45,12 +45,18 @@
 
   <p class="content">
     <%= form_for @comment do |f| %>
-      Ad Soyad: <%= f.text_field :name %><br>
-      E-posta:  <%= f.text_field :email %><br>
-      Mesajınız: <%= f.text_field :content %><br>
+      <div class="ui form">
+        <div class="two fields">
+          <div class="field"> Ad Soyad: <%= f.text_field :name %><br></div>
+            <div class="field"> E-posta:  <%= f.text_field :email %><br></div>
+            </div>
+              <div class="field"> Mesajınız: <%= f.text_field :content %><br></div>
+      </div>
       <%= f.hidden_field :post_id, value: @post.id %><br>
-      <%= f.submit 'Yorum Yap' %><br>
+      <%= f.submit 'Yorum Yap',class: 'button' %><br>
     <% end %>
   </p>
-</div>
+  </div>
 
+</div>
+ 
