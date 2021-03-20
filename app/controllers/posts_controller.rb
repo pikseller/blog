@@ -10,10 +10,12 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comment = Comment.new
     @comments = @post.comments
+    @rate= Rate.new
   end
 
   def new
     @post = Post.new
+
   end
 
   def create

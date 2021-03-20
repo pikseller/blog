@@ -18,6 +18,26 @@
 
   <br>
   <br>
+  <p class="rate">
+  <%= form_for(@rate) do |f| %>
+    <div  class="ui star rating" data-max-rating="5"> </div>
+    <%= f.hidden_field :post_id, value: @post.id %><br>
+    <%= f.hidden_field :rate,class:"rate_hidden_field" %><br>
+  <% end %>
+  <script>
+    $('.ui.rating').rating();
+    $(".ui.rating .icon").click(function(){
+    setTimeout(function (){
+      var x = $('.ui.rating').rating('get rating');
+      $(".rate_hidden_field").attr("value",x);
+      $("#new_rate").submit();
+    }, 200);
+     
+
+      
+    });
+  </script>
+  <%= @post.rates.average(:rate) %>
 
   <% @comments.each do |comment| %>
     <b><%= comment.name %></b> <%= comment.content %><br>
