@@ -37,26 +37,47 @@
       
     });
   </script>
-  <%= @post.rates.average(:rate) %>
+  
+  <%= @post.rates.average(:rate) %><br>
 
-  <% @comments.each do |comment| %>
-    <b><%= comment.name %></b> <%= comment.content %><br>
+    <% @comments.each do |comment| %>
+      <b><%= (comment.name).capitalize %></b> 
+      <% if (@now.strftime("%Y").to_i-comment.created_at.strftime("%Y").to_i) == 0%>
+      xd
+  <% else %>
+  <%=(@now.strftime("%Y").to_i-comment.created_at.strftime("%Y").to_i)%> yıl oldu
   <% end %>
+  <% if (@now.strftime("%m").to_i-comment.created_at.strftime("%m").to_i) == 0%>
+      
+  <% else %>
+  <%=(@now.strftime("%m").to_i-comment.created_at.strftime("%m").to_i)%> ay oldu
+  <% end %>
+  <% if (@now.strftime("%d").to_i-comment.created_at.strftime("%d").to_i) == 0%>
+    
+  <% else %>
+  <%= (@now.strftime("%d").to_i-comment.created_at.strftime("%d").to_i)%> gün oldu
+  <% end %>
+      <p><%= comment.content %><br></p>
 
-  <p class="content">
-    <%= form_for @comment do |f| %>
-      <div class="ui form">
-        <div class="two fields">
-          <div class="field"> Ad Soyad: <%= f.text_field :name %><br></div>
-            <div class="field"> E-posta:  <%= f.text_field :email %><br></div>
-            </div>
-              <div class="field"> Mesajınız: <%= f.text_field :content %><br></div>
-      </div>
-      <%= f.hidden_field :post_id, value: @post.id %><br>
-      <%= f.submit 'Yorum Yap',class: 'button' %><br>
-    <% end %>
-  </p>
-  </div>
-
-</div>
+   
+   
+    
+  <% end %>
+  <br>
  
+  
+  
+    <p class="content">
+      <%= form_for @comment do |f| %>
+          <div class="ui form">
+            <div class="fields">
+              <div class="field"> Ad Soyad: <%= f.text_field :name %><br></div>
+              <div class="field"> E-posta:  <%= f.text_field :email %><br></div>
+            </div>
+              <div class="field">Mesajınız: <%= f.text_field :content %><br></div>
+          </div>
+            <%= f.hidden_field :post_id, value: @post.id %><br>
+            <%= f.submit 'Yorum Yap',class: 'button' %><br>
+      <% end %>
+    </p>
+</div>
