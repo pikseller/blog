@@ -12,6 +12,7 @@ class PostsController < ApplicationController
     @comments = @post.comments
     @now = Time.now
     @rate= Rate.new
+    @now=Time.now
   end
 
   def new

@@ -3,6 +3,7 @@
   <h1>
       <%= truncate(@post.title, length: 60) %>
   </h1>
+
   <p class="content">
     <%= @post.content %>
   </p>
@@ -18,6 +19,7 @@
 
   <br>
   <br>
+
   <p class="rate">
   <%= form_for(@rate) do |f| %>
     <div  class="ui star rating" data-max-rating="5"> </div>
@@ -40,44 +42,42 @@
   
   <%= @post.rates.average(:rate) %><br>
 
-    <% @comments.each do |comment| %>
-      <b><%= (comment.name).capitalize %></b> 
-      <% if (@now.strftime("%Y").to_i-comment.created_at.strftime("%Y").to_i) == 0%>
-      xd
-  <% else %>
-  <%=(@now.strftime("%Y").to_i-comment.created_at.strftime("%Y").to_i)%> yıl oldu
-  <% end %>
-  <% if (@now.strftime("%m").to_i-comment.created_at.strftime("%m").to_i) == 0%>
-      
-  <% else %>
-  <%=(@now.strftime("%m").to_i-comment.created_at.strftime("%m").to_i)%> ay oldu
-  <% end %>
-  <% if (@now.strftime("%d").to_i-comment.created_at.strftime("%d").to_i) == 0%>
+    <div class="center">
+    <p class="content">
+    <%= form_for @comment do |f| %>
+      <div class="ui form">
+        <div class="fields">
+          <div class="field"> Ad Soyad: <%= f.text_field :name %><br></div>
+          <div class="field"> E-posta:  <%= f.text_field :email %><br></div>
+        </div>
+        <div class="büyüt">
+          <div class="field"> Mesajınız: <%= f.text_area :content %><br></div>
+        </div>
+      </div>
+      <%= f.hidden_field :post_id, value: @post.id %><br>
+      <%= f.submit 'Yorum Yap',class: 'button center' %><br>
+    <% end %>
+  </p>
     
-  <% else %>
-  <%= (@now.strftime("%d").to_i-comment.created_at.strftime("%d").to_i)%> gün oldu
-  <% end %>
-      <p><%= comment.content %><br></p>
-
-   
-   
-    
-  <% end %>
-  <br>
+    <div class="center">
  
   
+  <% @comments.each do |comment| %>
+      
+    <b><%= (comment.name).capitalize %></b>
+    <%  if (@now.strftime("%Y").to_i-comment.created_at.strftime("%Y").to_i) != 0%>
+          <%=(@now.strftime("%Y").to_i-comment.created_at.strftime("%Y").to_i)%> yıl önce
+    <%  elsif (@now.strftime("%m").to_i-comment.created_at.strftime("%m").to_i) != 0 %>
+          <%=(@now.strftime("%m").to_i-comment.created_at.strftime("%m").to_i)%> ay önce
+    <%  elsif (@now.strftime("%d").to_i-comment.created_at.strftime("%d").to_i) != 0%>
+          <%=(@now.strftime("%d").to_i-comment.created_at.strftime("%d").to_i)%> gün oldu
+    <%  end %><br> 
+    <%= comment.content %><br>
+   
+    
+  <% end %>
+</div>
   
-    <p class="content">
-      <%= form_for @comment do |f| %>
-          <div class="ui form">
-            <div class="fields">
-              <div class="field"> Ad Soyad: <%= f.text_field :name %><br></div>
-              <div class="field"> E-posta:  <%= f.text_field :email %><br></div>
-            </div>
-              <div class="field">Mesajınız: <%= f.text_field :content %><br></div>
-          </div>
-            <%= f.hidden_field :post_id, value: @post.id %><br>
-            <%= f.submit 'Yorum Yap',class: 'button' %><br>
-      <% end %>
-    </p>
+  </div>
+
 </div>
