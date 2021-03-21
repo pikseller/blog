@@ -59,12 +59,20 @@
   </p>
     
     <div class="center">
- <%=@now.strftime("%Y-%m-%d")%>
+ 
   
   <% @comments.each do |comment| %>
       
-    <b><%= comment.name.capitalize %></b><%= (comment.created_at.strftime("%Y-%m-%d"))  %>  <br> <%= comment.content %><br><br><br>
-    
+    <b><%= (comment.name).capitalize %></b>
+    <%  if (@now.strftime("%Y").to_i-comment.created_at.strftime("%Y").to_i) != 0%>
+          <%=(@now.strftime("%Y").to_i-comment.created_at.strftime("%Y").to_i)%> yıl önce
+    <%  elsif (@now.strftime("%m").to_i-comment.created_at.strftime("%m").to_i) != 0 %>
+          <%=(@now.strftime("%m").to_i-comment.created_at.strftime("%m").to_i)%> ay önce
+    <%  elsif (@now.strftime("%d").to_i-comment.created_at.strftime("%d").to_i) != 0%>
+          <%=(@now.strftime("%d").to_i-comment.created_at.strftime("%d").to_i)%> gün oldu
+    <%  end %><br> 
+    <%= comment.content %><br>
+   
     
   <% end %>
 </div>
