@@ -3,6 +3,7 @@
   <h1>
       <%= truncate(@post.title, length: 60) %>
   </h1>
+
   <p class="content">
     <%= @post.content %>
   </p>
@@ -18,6 +19,7 @@
 
   <br>
   <br>
+
   <p class="rate">
   <%= form_for(@rate) do |f| %>
     <div  class="ui star rating" data-max-rating="5"> </div>
@@ -39,23 +41,34 @@
   </script>
   <%= @post.rates.average(:rate) %>
 
-  <% @comments.each do |comment| %>
-    <b><%= comment.name %></b> <%= comment.content %><br>
-  <% end %>
-
-  <p class="content">
+    <div class="center">
+    <p class="content">
     <%= form_for @comment do |f| %>
       <div class="ui form">
-        <div class="two fields">
+        <div class="fields">
           <div class="field"> Ad Soyad: <%= f.text_field :name %><br></div>
-            <div class="field"> E-posta:  <%= f.text_field :email %><br></div>
-            </div>
-              <div class="field"> Mesajınız: <%= f.text_field :content %><br></div>
+          <div class="field"> E-posta:  <%= f.text_field :email %><br></div>
+        </div>
+        <div class="büyüt">
+          <div class="field"> Mesajınız: <%= f.text_area :content %><br></div>
+        </div>
       </div>
       <%= f.hidden_field :post_id, value: @post.id %><br>
-      <%= f.submit 'Yorum Yap',class: 'button' %><br>
+      <%= f.submit 'Yorum Yap',class: 'button center' %><br>
     <% end %>
   </p>
+    
+    <div class="center">
+ <%=@now.strftime("%Y-%m-%d")%>
+  
+  <% @comments.each do |comment| %>
+      
+    <b><%= comment.name.capitalize %></b><%= (comment.created_at.strftime("%Y-%m-%d"))  %>  <br> <%= comment.content %><br><br><br>
+    
+    
+  <% end %>
+</div>
+  
   </div>
 
 </div>
