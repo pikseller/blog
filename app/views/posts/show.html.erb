@@ -71,6 +71,8 @@
           <%=(@now.strftime("%m").to_i-comment.created_at.strftime("%m").to_i)%> ay önce
     <%  elsif (@now.strftime("%d").to_i-comment.created_at.strftime("%d").to_i) != 0%>
           <%=(@now.strftime("%d").to_i-comment.created_at.strftime("%d").to_i)%> gün oldu
+    <%else%>
+          Bugün yapıldı
     <%  end %><br> 
     <%= comment.content %><br>
    
