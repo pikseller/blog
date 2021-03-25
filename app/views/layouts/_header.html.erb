@@ -1,7 +1,18 @@
 <div class="navbar">
   <div class="ortala">
     <div class="logo"><%= link_to 'Jedi Akademi', root_path %></div>
+
+    <%= form_tag(search_page_path, :method => "get") do %>  
+      <div class="ayarr">
+      <form class="formm">
+          <%= search_field_tag :search, params[:search], placeholder: "Arama yap", class: "formm__field" %>  
+          <%= button_tag "Ara", :class => 'btn btn--primary btn--inside uppercase'%>  
+        </div>
+      
+    <% end %>
+    
     <div class="menu">
+    
       <ul>
         <li class="menu-item"><a href="#">Anasayfa</a></li>
         <li class="menu-item"><%= link_to 'Blog', posts_path, class: "active" %></li>
@@ -9,4 +20,7 @@
       </ul>
     </div>
   </div>
+
+
+
 </div>
