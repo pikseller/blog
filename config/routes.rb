@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :posts,       except: [:update, :edit, :destroy]
   resources :comments
   resources :rates
+  get '/search' => 'pages#search', :as => 'search_page'
 end
