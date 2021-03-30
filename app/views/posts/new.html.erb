@@ -2,6 +2,6 @@
   Title: <%= f.text_field :title %><br>
   Content: <%= f.text_area :content %><br>
   Categories: <%= f.select(:category_ids, Category.all.collect {|category| [category.name, category.id]} ,{ :prompt => "En Az Birini Seçiniz..."}, { :multiple => true }) %><br>
-  
+  resim ekle: <%=f.file_field :image%>
   <%= f.submit 'Gönder', class:'button'%>
 <% end %>

@@ -3,3 +3,6 @@
     <% @results.each do |result| %>  
       <%= link_to result.title , post_path(result.id)%><br>  
     <% end %>
+    <% if @results.count==0%>
+    <%=  "içerisinde #{@parameter} geçen hiç bir sonuç bulunamadı"%>
+    <% end %>

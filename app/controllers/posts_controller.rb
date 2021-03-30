@@ -4,7 +4,6 @@ class PostsController < ApplicationController
   
   def index
     @posts = Post.all
-    
   end
 
   def show
@@ -24,6 +23,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     if @post.save
       flash[:success] = "Post Başarıyla Oluşturuldu"
+
       redirect_to post_path(@post)
     else
       flash[:error] = @post.errors.full_messages.join(", ")
@@ -33,7 +33,7 @@ class PostsController < ApplicationController
   
   
   def post_params
-    params.require(:post).permit(:title, :content, category_ids: [])
+    params.require(:post).permit(:title, :content, :image, category_ids: [])
   end
   def is_admin?
     redirect_to(root_path) if current_user.user?

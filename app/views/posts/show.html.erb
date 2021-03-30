@@ -1,5 +1,11 @@
-<div class="post-genis ortala">
-  <img src="">
+<div class="post-genis ortalaa">
+<div>
+<%if @post.image.attached?%>
+<%=image_tag @post.image, style:"width:100%; height:380px; object-fit:cover"%>
+<%else%>
+foto yok
+<%end%>
+</div>
   <h1>
       <%= truncate(@post.title, length: 60) %>
   </h1>
@@ -14,6 +20,8 @@
       <% end %>
     <% else %>
       Bu yazının kategorisi bulunmamaktadır.
+      
+
     <% end %>
   </p>
 
@@ -85,5 +93,16 @@
 </div>
   
   </div>
-
+  <%= link_to "http://www.facebook.com/" do %>
+      <%= image_tag 'facebook.png' %>
+  <% end %> 
+  <%= link_to "https://twitter.com/intent/tweet?url=#{@post.title} #{post_url @post.id}" do %>
+      <%= image_tag 'twitter.png' %>
+  <% end %>
+   <%= link_to "https://www.instagram.com" do %>
+      <%= image_tag 'instagram.png' %>
+  <% end %>
+  <%= link_to "https://www.linkedin.com/" do %>
+      <%= image_tag 'linkedin.png' %>
+  <% end %>
 </div>

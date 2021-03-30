@@ -2,10 +2,11 @@ class PagesController < ApplicationController
     def search  
         if params[:search].blank?  
           redirect_to(root_path, alert: "Empty field!") and return  
-        else  
+        elsif  
           @parameter = params[:search].downcase  
-          @results = Post.all.where("lower(content) LIKE :search", search: "%#{@parameter}%")
-
+          @results = Post.all.where("lower(title) LIKE :search", search: "%#{@parameter}%")   #sql injection engellenmiş kod
+                                                                                              #xss cross site scripting
         end  
+
     end
 end
