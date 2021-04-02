@@ -62,9 +62,8 @@
 
         </div>
           <div class="büyüt">
-
+          
             <div class="field"><%= f.text_area :content, required: true, placeholder: "Yorumunuz" %> </div>
-            
           </div>
       </div>
       <%= f.hidden_field :post_id, value: @post.id %><br>
@@ -93,6 +92,9 @@
 </div>
   
   </div>
+  </div>
+
+  <div class="social">
   <%= link_to "http://www.facebook.com/" do %>
       <%= image_tag 'facebook.png' %>
   <% end %> 
@@ -105,4 +107,4 @@
   <%= link_to "https://www.linkedin.com/" do %>
       <%= image_tag 'linkedin.png' %>
   <% end %>
-</div>
+  </div>
