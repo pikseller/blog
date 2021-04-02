@@ -4,4 +4,5 @@ class Post < ApplicationRecord
   has_many :rates
   
   validates :content, presence: true
+  has_one_attached :image
 end
