@@ -1,0 +1,10 @@
+<% current_user.email if user_signed_in? %><br>
+<% if user_signed_in?%>
+
+    <%= link_to 'YENİ BİR POST EKLE', new_post_path %><br>
+    <%= link_to 'YENİ BİR KATEGORY EKLE', new_category_path%><br>
+    <%= link_to 'KATEGORYLERİ DÜZENLE', categories_path%><br>
+    <%= link_to 'Çıkış Yap', destroy_user_session_path, method: :delete %>
+<%else%>
+    <%= link_to 'Giriş Yap',new_user_session_path %>
+<%end%>

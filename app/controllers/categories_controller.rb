@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :is_admin?, except: [:index, :show]
   def index
     @categories=Category.all
   end
@@ -39,5 +41,8 @@ class CategoriesController < ApplicationController
   def categories_params
    params.require(:category).permit(:name)
 
+  end
+  def is_admin?
+    redirect_to(root_path) if current_user.user?
   end
 end
