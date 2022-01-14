@@ -44,9 +44,108 @@
 }
 .ayarr{
   float: right;
-  margin-top: 35px;
+  margin-top: 15px;
+}
 
+.form_field {
+  width: 400px;
+  background: #fff;
+  color: #a3a3a3;
+  font: inherit;
+  box-shadow: 0 6px 10px 0 rgb(0 0 0 / 10%);
+  border: 0;
+  outline: 0;
+  padding: 10px 16px;
 }
 /*
  *= require font-awesome
  */
+
+ .kartIcerik {
+  position: relative; 
+  font-family: 'Open Sans', sans-serif;
+ }
+
+ .baslikIcerik {
+  position: absolute; 
+  bottom: 0; 
+  width: 100%; 
+  background-color: #1f2329c5;
+ }
+
+ .baslikIcerikAlt {
+  font-size: 24px; 
+  color: #e1dde7; 
+  padding: 10px; 
+  font-weight: 600; 
+  text-transform: Capitalize
+ }
+
+ .profilIcerik {
+  float: left;
+ }
+
+ .profilAdiIcerik {
+  float: left; 
+  padding: 10px; 
+  margin-top: 5px;
+ }
+
+ /*---------- Giriş Yap Sayfası -----------*/
+/* 
+ input[type=email], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #6d37da;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif; 
+  font-weight: bold;
+}
+
+label {
+  font-family: 'Open Sans', sans-serif; 
+}
+
+button {
+  background-color: #6d37da;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.container {
+  padding: 16px;
+}
+
+.parola {
+  float: right;
+  padding-top: 16px;
+}
+
+.girisForm {
+  background-color: #fff;
+  margin: 5% auto 15% auto;
+  border: 1px solid #6d37da;
+  width: 100%;
+}
+
+.formParola {
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 300px) {
+  .parola {
+     display: block;
+     float: none;
+  }
+
+}

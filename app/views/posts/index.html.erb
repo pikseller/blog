@@ -1,43 +1,63 @@
 
 <% @posts.each do |post| %>
   <%= link_to post_path(post), class: 'post' do %>
-    <div>
-      <%if post.image.attached?%>
-        <%=image_tag post.image, style:"width:100%; height:350px; object-fit:cover "%>
-      <%else%>
-        foto yok
-      <%end%>
-    </div>
-      <h1>
-      
-      <span class="darkmode-ignore">  <%= truncate(post.title, length: 20)%> </span>
-        
-      </h1>
 
-    
+    <div class="kartIcerik">
+      <div class="govdeIcerik">
+        <div class="gorselIcerik">
+          <%if post.image.attached?%>
+            <%=image_tag post.image, style:"width:100%; height:350px; object-fit:cover; border-top-left-radius: 20px; border-top-right-radius: 20px;"%>
+          <%else%>
+            Fotoğraf Bulunamadı.
+          <%end%>
+        </div>
+          <div class="baslikIcerik">
+            <p class="baslikIcerikAlt"><%= truncate(post.title, length: 40)%></p>
+          </div>
+        <div class="footerIcerik">
+          <div class="profilIcerik">
+            <%= image_tag 'pp.webp', style:"max-width: 50px; margin-top: 10px; border-radius: 100px" %>
+          </div>
+          <div class="profilAdiIcerik">
+            <h2 style="color: #6d37da"> | Kullanıcı Test</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
   <% end %>
 <% end %>
-<div class="social">
-  <%= link_to "http://www.facebook.com/" do %>
-      <%= image_tag 'facebook.png' %>
-  <% end %> 
-  <%= link_to "http://www.twitter.com/" do %>
-      <%= image_tag 'twitter.png' %>
-  <% end %>
-   <%= link_to "https://www.instagram.com" do %>
-      <%= image_tag 'instagram.png' %>
-  <% end %>
-  <%= link_to "https://www.linkedin.com/" do %>
-      <%= image_tag 'linkedin.png' %>
-  <% end %>
+
+<!--
+<div class="paylas" style="position: fixed; bottom: 0; width: 100%; display: flex;">
+  <div class="linkler" style="justify-content: center;">
+    
+    <%= link_to "http://www.facebook.com/" do %>
+        <%= image_tag 'facebook.png' %>
+    <% end %> 
+
+    <%= link_to "http://www.twitter.com/" do %>
+        <%= image_tag 'twitter.png' %>
+    <% end %>
+
+    <%= link_to "https://www.instagram.com" do %>
+        <%= image_tag 'instagram.png' %>
+    <% end %>
+
+    <%= link_to "https://www.linkedin.com/" do %>
+        <%= image_tag 'linkedin.png' %>
+    <% end %>
+
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+</div>
+-->
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
   <script>
     function addDarkmodeWidget() {
       new Darkmode().showWidget();
     }
     window.addEventListener('load', addDarkmodeWidget);
-  </script>
+  </script> 
   
 
            

@@ -1,9 +1,16 @@
-<%= current_user.email if user_signed_in? %><br>
-    <% if user_signed_in?%>
 
-        <%= link_to 'posts', posts_path %><br>
-        <%= link_to 'kategoriler', categories_path%><br>
-        <%= link_to 'Çıkış Yap', destroy_user_session_path, method: :delete %>
-    <%else%>
-        <%= link_to 'Giriş Yap',new_user_session_path %>
-    <%end%>
+<div style="display: flex;">
+    <div>
+        <%= image_tag 'home.png' %>
+    </div>
+    <div style="margin: auto;">
+      <a href="#" style=""><%= current_user.email if user_signed_in? %><br>
+            <% if user_signed_in?%>
+                <%= link_to 'posts', posts_path %><br>
+                <%= link_to 'kategoriler', categories_path%><br>
+                <%= link_to 'Çıkış Yap', destroy_user_session_path, method: :delete %>
+            <%else%>
+                <%= link_to 'Giriş Yap',new_user_session_path, style:"background-color: #6d37da; padding: 20px; border-radius: 25px; color: white; font-size: 18px; font-family: 'Open Sans', sans-serif; font-weight: bold;" %>
+            <%end%>
+        </a>
+    </div>

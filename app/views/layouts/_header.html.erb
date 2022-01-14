@@ -1,7 +1,7 @@
 
 <div class="navbar darkmode-ignore">
   <div class="ortala">
-    <div class="logo"><%= link_to 'Jedi Akademi', root_path %></div>
+    <div class="logo"><%= image_tag 'iThink.png', :style => "max-width: 190px" %><%= link_to '', root_path %></div>
 
     <%= form_tag(search_page_path, :method => "get") do %>  
       <div class="ayarr">
@@ -17,7 +17,7 @@
     
       <ul>
         <li class="menu-item"><a href="#">Anasayfa</a></li>
-        <li class="menu-item"><%= link_to 'Blog', posts_path, class: "active" %></li>
+        <li class="menu-item"><%= link_to 'Tartışma', posts_path, class: "active" %></li>
         <li class="menu-item"><a href="#">İletişim</a></li>  
       </ul>
     </div>
