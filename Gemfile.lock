@@ -115,6 +115,12 @@ GEM
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
     method_source (1.0.0)
+<<<<<<< HEAD
+=======
+    mimemagic (0.3.10)
+      nokogiri (~> 1)
+      rake
+>>>>>>> 25edf7d3981851419d2464679740074f139c282c
     mini_mime (1.0.2)
     minitest (5.14.4)
     msgpack (1.4.2)
@@ -251,4 +257,4 @@ RUBY VERSION
    ruby 3.0.0p0
 
 BUNDLED WITH
-   2.2.15
+   2.2.16
