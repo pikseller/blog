@@ -9,10 +9,12 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+
     @comment = Comment.new
     @comments = @post.comments    
     @now = Time.now
     @rate= Rate.new
+
   end
 
   def new
@@ -30,6 +32,13 @@ class PostsController < ApplicationController
       flash[:error] = @post.errors.full_messages.join(", ")
       render :new
     end
+  end
+  def add_cart
+    @post = Post.find(params[:id])
+
+      current_user.current_cart.posts << @post
+      
+    redirect_to @post, notice: 'Ürün Sepete Eklendi'
   end
   
   

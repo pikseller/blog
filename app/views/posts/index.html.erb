@@ -1,8 +1,9 @@
 
 <% @posts.each do |post| %>
-  <%= link_to post_path(post), class: 'post' do %>
+  
 
-    <div class="kartIcerik">
+    <div class="post">
+      <%= link_to post_path(post), class: 'kartIcerik' do %>
       <div class="govdeIcerik">
         <div class="gorselIcerik">
           <%if post.image.attached?%>
@@ -14,18 +15,16 @@
           <div class="baslikIcerik">
             <p class="baslikIcerikAlt"><%= truncate(post.title, length: 40)%></p>
           </div>
-        <div class="footerIcerik">
-          <div class="profilIcerik">
-            <%= image_tag 'pp.webp', style:"max-width: 50px; margin-top: 10px; border-radius: 100px" %>
-          </div>
-          <div class="profilAdiIcerik">
-            <h2 style="color: #6d37da"> | Kullanıcı Test</h2>
-          </div>
-        </div>
-      </div>
-    </div>
 
-  <% end %>
+      </div>
+    
+    <% end %>
+        <div class="footerIcerik">
+          <%=link_to "Sepete ekle", add_cart_posts_path(post), style:"color: #6d37da" %>
+
+        </div>
+  </div>
+  
 <% end %>
 
 <!--

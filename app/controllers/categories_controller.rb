@@ -20,13 +20,17 @@ class CategoriesController < ApplicationController
       render :new
     end
   end
+  def shop
+    @categories = Category.find(params[:id])
+
+  end
 
   def edit
     @categories=Category.find(params[:id])
   end
   def update
     @categories=Category.find(params[:id])
-    if @categories.update (categories_params)
+    if @categories.update(categories_params)
       redirect_to categories_path
     else 
       render :update

@@ -4,5 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          enum role: {admin:0,user:1}
-         
+  has_many :carts
+  def current_cart
+    if carts.present?
+      carts.last
+    else
+      carts.create
+    end
+  end
 end
